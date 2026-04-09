@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowList | Manage Tasks</title>
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-default-filter="all">
+  <div class="page-shell">
+    <section class="workspace">
+      <nav class="topbar workspace-topbar">
+        <a href="index.html" class="brand">
+          <img src="images/icon.png" alt="To-do icon" class="brand-icon">
+          <span>FlowList</span>
+        </a>
+        <a href="index.html" class="top-link">Back home</a>
+      </nav>
+
+      <div class="workspace-intro">
+        <div>
+          <p class="eyebrow">Task workspace</p>
+          <h1>See every task and organize your day with a clearer workflow.</h1>
+          <p class="hero-text">
+            Add new items, switch between views, clear completed work, and keep your progress
+            updated in one place.
+          </p>
+        </div>
+
+        <ul class="stats">
+          <li>
+            <strong id="total-tasks-stat">0</strong>
+            <span>Tasks planned</span>
+          </li>
+          <li>
+            <strong id="completed-tasks-stat">0</strong>
+            <span>Completed today</span>
+          </li>
+          <li>
+            <strong id="completion-rate-stat">0%</strong>
+            <span>Completion rate</span>
+          </li>
+        </ul>
+      </div>
+
+      <section class="app-card workspace-card" aria-label="Task workspace">
+        <div class="card-top">
+          <div>
+            <p class="card-label">Your tasks</p>
+            <h2>Daily Planner</h2>
+          </div>
+          <span class="pill" id="workspace-pill">All tasks</span>
+        </div>
+
+        <form class="task-input" id="task-form">
+          <div class="task-input-main">
+            <input
+              type="text"
+              id="task-input"
+              placeholder="Add a new task for today"
+              aria-label="Add a new task"
+              maxlength="80"
+            >
+          </div>
+          <div class="task-input-row">
+            <input
+              type="date"
+              id="task-date"
+              aria-label="Task date"
+            >
+            <input
+              type="time"
+              id="task-time"
+              aria-label="Task time"
+            >
+            <button type="submit">Add Task</button>
+          </div>
+        </form>
+
+        <div class="task-groups">
+          <div class="task-panel" id="task-panel">
+            <div class="panel-heading">
+              <h3>Task List</h3>
+              <span id="task-count">0 items</span>
+            </div>
+
+            <div class="task-toolbar">
+              <div class="task-filters" role="tablist" aria-label="Task views">
+                <button type="button" class="filter-chip is-active" data-filter="all">All</button>
+                <button type="button" class="filter-chip" data-filter="active">Active</button>
+                <button type="button" class="filter-chip" data-filter="completed">Completed</button>
+              </div>
+
+              <div class="task-bulk-actions">
+                <button type="button" class="toolbar-btn" id="mark-all-btn">Mark all done</button>
+                <button type="button" class="toolbar-btn" id="clear-completed-btn">Clear completed</button>
+              </div>
+            </div>
+
+            <div class="task-list" id="task-list"></div>
+            <p class="empty-state" id="empty-state">No tasks in this view yet. Add a task or switch filters.</p>
+          </div>
+
+          <aside class="progress-card">
+            <div class="progress-head">
+              <h3>Progress</h3>
+              <span id="progress-value">0%</span>
+            </div>
+            <div class="progress-bar" aria-hidden="true">
+              <span id="progress-fill"></span>
+            </div>
+
+            <div class="mini-grid">
+              <article>
+                <strong id="completed-count">0</strong>
+                <span>Completed</span>
+              </article>
+              <article>
+                <strong id="active-count">0</strong>
+                <span>Active</span>
+              </article>
+              <article>
+                <strong id="pending-count">0</strong>
+                <span>Pending</span>
+              </article>
+              <article>
+                <strong id="total-count">0</strong>
+                <span>Total</span>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
